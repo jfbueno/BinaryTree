@@ -1,9 +1,19 @@
 ﻿using System;
+using static System.Console;
 
 namespace BinaryTree
 {
     class Program
     {
+        static void InOrder(BSTNode p)
+        {
+            if (p != null) 
+            {
+                InOrder(p.Left);
+                Console.WriteLine(p.Key + " ");
+                InOrder(p.Right);
+            }
+        }
         static void Main(string[] args)
         {
             var tree = new BinarySearchTree();
@@ -22,10 +32,14 @@ namespace BinaryTree
             tree.Root.Right.Left.Right = new BSTNode(16);
             tree.Root.Right.Left.Right.Left = new BSTNode(14);
 
+
             //tree.ExclusaoFusao(tree.Root.Right);
 
+            tree.ExclusaoCopia(tree.Root.Right.Left);
+            InOrder(tree.Root);
+
             //var papito = tree.EncontrarPai(tree.Root, tree.Root.Left.Right);            
-            tree.ExclusaoCopia(ref tree.Root.Right);
+            //tree.ExclusaoCopia(ref tree.Root.Right);
         }
     }
 }

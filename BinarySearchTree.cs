@@ -35,7 +35,7 @@ public class BinarySearchTree
             pai.Right = filho;
     }    
 
-    public void ExclusaoCopia(ref BSTNode node) 
+    public void ExclusaoCopia(BSTNode node) 
     {
         var maior = node.Left; // A partir daqui tem-se uma subárvore com os menores apenas
 
@@ -50,8 +50,8 @@ public class BinarySearchTree
         if(maior.Left != null) 
             ExclusaoUmFilho(maior);
         else
-        {            
-            ExclusaoFolha(ref maior);
+        {
+            ExclusaoFolha(ref node.Left);
         }
     }
 
